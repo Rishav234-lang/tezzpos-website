@@ -1,26 +1,33 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
 export function Logo({
   className,
-  textClassName,
+  textClassName: _textClassName,
+  size = 'md',
 }: {
   className?: string
   textClassName?: string
+  size?: 'sm' | 'md' | 'lg' | 'xl'
 }) {
+  const sizeClasses = {
+    sm: 'h-8',
+    md: 'h-11',
+    lg: 'h-14',
+    xl: 'h-20',
+  }
+
   return (
-    <Link href="/" className={cn('group flex items-center gap-2.5', className)}>
-      <span className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary/80 font-heading text-lg font-extrabold text-primary-foreground shadow-md shadow-primary/20 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/30">
-        T
-      </span>
-      <span
-        className={cn(
-          'font-heading text-xl font-extrabold tracking-tight transition-colors',
-          textClassName,
-        )}
-      >
-        Tezz<span className="text-primary">POS</span>
-      </span>
+    <Link href="/" className={cn('group flex items-center', className)}>
+      <Image
+        src="/logo.png"
+        alt="TezzPOS"
+        width={240}
+        height={72}
+        className={cn('w-auto object-contain', sizeClasses[size])}
+        priority
+      />
     </Link>
   )
 }

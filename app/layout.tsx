@@ -39,6 +39,13 @@ export const metadata: Metadata = {
     'TezzPOS',
   ],
   generator: 'v0.app',
+  icons: {
+    icon: [
+      { url: '/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
