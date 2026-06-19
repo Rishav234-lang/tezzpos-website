@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { CheckCircle2, Loader2 } from "lucide-react"
+import { AlertCircle, CheckCircle2, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -17,14 +17,49 @@ const businessTypes = [
   "Other",
 ]
 
-export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle")
+const formspreeFormId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+export function ContactForm() {
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
+  const [errorMessage, setErrorMessage] = useState("")
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setStatus("submitting")
-    // Simulate a submission; wire to a real endpoint/integration later.
-    setTimeout(() => setStatus("success"), 1000)
+    setErrorMessage("")
+
+    if (!formspreeFormId) {
+      setErrorMessage(
+        "Contact form is not configured yet. Please email us directly or try again later.",
+      )
+      setStatus("error")
+      return
+    }
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${formspreeFormId}`, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      })
+
+      const data = (await response.json()) as { ok?: boolean; error?: string }
+
+      if (!response.ok) {
+        throw new Error(data.error ?? "Something went wrong. Please try again.")
+      }
+
+      form.reset()
+      setStatus("success")
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error ? error.message : "Failed to send message. Please try again.",
+      )
+      setStatus("error")
+    }
   }
 
   if (status === "success") {
@@ -96,6 +131,14 @@ export function ContactForm() {
           placeholder="Tell us about your business and what you're looking for."
         />
       </div>
+
+      {status === "error" ? (
+        <div className="mt-5 flex items-start gap-3 rounded-lg border border-destructive/30 bg-destructive/5 px-4 py-3 text-sm text-destructive">
+          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+          <p>{errorMessage}</p>
+        </div>
+      ) : null}
+
       <Button type="submit" size="lg" className="mt-6 w-full sm:w-auto" disabled={status === "submitting"}>
         {status === "submitting" ? (
           <>

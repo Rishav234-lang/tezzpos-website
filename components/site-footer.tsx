@@ -6,6 +6,7 @@ import { company, services } from '@/lib/site'
 
 const productLinks = [
   { label: 'Features', href: '/#features' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Industries', href: '/#industries' },
   { label: 'Why TezzPOS', href: '/#why' },
   { label: 'About Us', href: '/about' },

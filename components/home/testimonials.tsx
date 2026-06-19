@@ -8,14 +8,14 @@ const testimonials = [
   {
     name: 'Rajesh Patel',
     role: 'Owner, Patel Retail',
-    location: 'Ahmedabad, Gujarat',
+    location: 'Pune, Maharashtra',
     vertical: 'TezzPOS Retail',
     accent: 'from-amber-500 to-orange-600',
     quote:
       'TezzPOS transformed our store operations. Billing is 3x faster, inventory is always accurate, and GST reports are ready in one click. Best investment we made.',
   },
   {
-    name: 'Priya Sharma',
+    name: 'Mayur Patil',
     role: 'Manager, Sharma Dhaba',
     location: 'Jaipur, Rajasthan',
     vertical: 'TezzPOS Restro',
@@ -24,13 +24,13 @@ const testimonials = [
       'The KOT and table management features are incredible. Our kitchen has never been more organized, and customers love the faster service.',
   },
   {
-    name: 'Amit Kumar',
-    role: 'Proprietor, Kumar Garage',
-    location: 'Lucknow, Uttar Pradesh',
+    name: 'Amit Jayle',
+    role: 'Proprietor, Vada Restaurant',
+    location: 'Pune, Maharashtra',
     vertical: 'TezzPOS Garage',
     accent: 'from-blue-500 to-indigo-600',
     quote:
-      'Job cards, spare parts tracking, and service history — everything a garage needs in one app. My mechanics love how easy it is to use.',
+      'Billing, kitchen management, and inventory tracking — TezzPos has streamlined our entire restaurant operations. The team found it very easy to adapt.',
   },
 ]
 

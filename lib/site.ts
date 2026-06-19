@@ -5,7 +5,7 @@ export const company = {
   email: 'contact@tezzpos.com',
   support: 'support@tezzpos.com',
   phone: '+91 8308460607',
-  address: '648/1, Sector 3c, Gandhinagar, Gujarat 382007, India',
+  address: '60/1B, Bakori Rd, Wagholi, Pune, Maharashtra 412207, India',
   social: {
     twitter: 'https://twitter.com/tezzpos',
     linkedin: 'https://linkedin.com/company/tezzpos',
@@ -27,6 +27,7 @@ export const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Features', href: '/#features' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Industries', href: '/#industries' },
   { label: 'Contact', href: '/contact' },
 ]
