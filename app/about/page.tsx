@@ -7,6 +7,7 @@ import { SectionHeading } from "@/components/section-heading"
 import { Button } from "@/components/ui/button"
 import { company } from "@/lib/site"
 
+
 export const metadata: Metadata = {
   title: "About Us",
   description:
