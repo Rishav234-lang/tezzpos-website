@@ -32,7 +32,7 @@ export const plans: Plan[] = [
     tagline: 'Small cafes & new restaurants',
     description: 'Core billing, orders, and reports to get your restaurant running on day one.',
     prices: { monthly: 199, yearly: 1999, 'three-years': 5499 },
-    deviceAccess: '1 desktop device',
+    deviceAccess: '1 Mobile application',
     highlights: [
       'Takeaway orders & billing',
       'Order & sales reports',
@@ -46,7 +46,7 @@ export const plans: Plan[] = [
     name: 'Growth',
     tagline: 'Growing restaurants',
     description: 'Full dine-in operations with tables, floors, and complete inventory control.',
-    prices: { monthly: 399, yearly: 4499, 'three-years': 12999 },
+    prices: { monthly: 449, yearly: 4999, 'three-years': 13999 },
     deviceAccess: '1 desktop device',
     highlights: [
       'Everything in Starter',

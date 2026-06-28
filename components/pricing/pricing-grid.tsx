@@ -83,6 +83,7 @@ function PlanCard({ plan, period }: { plan: Plan; period: BillingPeriod }) {
           <span className="font-heading text-4xl font-extrabold tracking-tight text-foreground">
             {formatPrice(price)}
           </span>
+          <span className="ml-1 text-sm font-medium text-muted-foreground">+ GST</span>
         </div>
         <p className="mt-1 text-sm text-muted-foreground">per {suffix}</p>
         <p className="mt-3 text-xs font-medium text-muted-foreground/80">{plan.deviceAccess}</p>
